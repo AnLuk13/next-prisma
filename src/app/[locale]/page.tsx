@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
 import { useUserStore } from '@/app/lib/store/useUserStore';
 import _ from 'lodash';
 import axios from 'axios';
-import { useRouter } from 'next/navigation';
 import { useCookies } from 'next-client-cookies';
+import { useRouter } from '@/app/lib/routing';
 
 export default function HomePage() {
   const t = useTranslations();
@@ -29,6 +29,7 @@ export default function HomePage() {
         setUsers(response.data);
       })
       .catch((error) => {
+        setUsers([{ name: 'AHHSHDhshd', age: 18, id: 1, email: 'test@gmail.com' }]);
         console.error('Error fetching users:', error);
       });
   }, []);
